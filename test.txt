@@ -1,0 +1,40 @@
+  설치 명령어
+
+  - Ubuntu/WSL                                                                         
+      - sudo apt-get update                                                            
+      - sudo apt-get install -y tesseract-ocr tesseract-ocr-kor python3-pip            
+      - python3 -m pip install -r scripts/requirements.txt                             
+  - macOS(Homebrew)                                                                    
+      - brew install tesseract                                                         
+      - brew install tesseract-lang                                                    
+      - pip3 install -r scripts/requirements.txt
+  - Windows                                                                            
+      - Tesseract 설치(설치 시 Korean 언어 체크): https://github.com/UB-Mannheim/      
+        tesseract/wiki                                                                 
+      - python -m pip install -r scripts/requirements.txt                              
+                                                                                       
+  무엇을 만들어놨는지                                                                  
+                                                                                       
+  - scripts/ocr_menu.py: ai_top_100_menu/menu_images/*.png를 OCR로 읽어 주간/요일/코너 
+    별 텍스트와 칼로리를 파싱하고, 1~5번 문제의 답을 계산합니다.                       
+  - 출력: build/menu_data.json에 원시 추출값과 요약 결과를 함께 저장합니다.            
+  - 의존성: scripts/requirements.txt (pytesseract, pillow, opencv-python-headless,     
+    pandas 등)                                                                         
+  - 사용법과 팁: scripts/README_OCR.md                                                 
+                                                                                       
+  실행 방법                                                                            
+                                                                                       
+  - 위 설치 완료 후 아래 한 줄만 실행하세요.                                           
+      - python3 scripts/ocr_menu.py   
+                                                       
+  - 결과 확인 포인트:                                                                  
+      - Q1: summary.Q1_order에 조림/볶음/무침/구이 빈도 내림차순                       
+      - Q2: summary.Q2_avg_order에 1월 중식 코너별 평균 칼로  - 위 설치 완료 후 아래 한 줄만 실행하세요.
+      - python3 scripts/ocr_menu.py
+  - 결과 확인 포인트:
+      - Q1: summary.Q1_order에 조림/볶음/무침/구이 빈도 내림차순
+  - 결과 확인 포인트:
+vg_order에 1월 중식 코너별 평균 칼로리 내림차순
+      - Q3: summary.Q3_regions_2plus에 2회 이상 등장 지역명 리스트
+      - Q4: summary.Q4_menu_kcal과 summary.Q4_order에 메뉴 별 칼로리와 내림차순 
+      - Q5: summary.Q5_solution에 지정된 형식의 2월 답안 배열

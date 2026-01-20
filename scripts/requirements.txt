@@ -1,0 +1,6 @@
+pytesseract
+pillow
+opencv-python-headless
+pandas
+numpy
+python-Levenshtein
